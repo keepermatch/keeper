@@ -1,4 +1,4 @@
-package com.codepath.keeper;
+package com.codepath.keeper.services;
 
 import com.codepath.keeper.models.VouchResponse;
 import com.google.gson.Gson;

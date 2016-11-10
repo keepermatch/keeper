@@ -14,16 +14,84 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class SubVouch {
 
+    // instance vars
     @SerializedName("_id")
-    public Id id;
-    public MongoDate created;
-    public String title;
-    public String body;
-    public List<Id> likes = new ArrayList<Id>();
+    private ObjectId objectId;
+    private GsonCompatibleDate created;
+    private String title;
+    private String body;
+    private List<ObjectId> likes = new ArrayList<ObjectId>();
     @SerializedName("cancel_token")
-    public String cancelToken;
+    private String cancelToken;
     @SerializedName("is_cancelled")
-    public boolean isCancelled;
+    private boolean isCancelled;
     @SerializedName("is_confirmed")
-    public boolean isConfirmed;
+    private boolean isConfirmed;
+
+    // getters and setters
+    public ObjectId getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(ObjectId objectId) {
+        this.objectId = objectId;
+    }
+
+    public GsonCompatibleDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(GsonCompatibleDate created) {
+        this.created = created;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public List<ObjectId> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<ObjectId> likes) {
+        this.likes = likes;
+    }
+
+    public String getCancelToken() {
+        return cancelToken;
+    }
+
+    public void setCancelToken(String cancelToken) {
+        this.cancelToken = cancelToken;
+    }
+
+    public boolean isCancelled() {
+        return isCancelled;
+    }
+
+    public void setCancelled(boolean cancelled) {
+        isCancelled = cancelled;
+    }
+
+    public boolean isConfirmed() {
+        return isConfirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        isConfirmed = confirmed;
+    }
+
+
 }

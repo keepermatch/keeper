@@ -9,10 +9,23 @@ import java.util.List;
 
 public class VouchResponse {
 
-    public List<Vouch> vouches;
+    // instance vars
+    private List<Vouch> vouches;
 
+    // constructors
     public VouchResponse() {
         vouches = new ArrayList<Vouch>();
     }
+
+    // getters and setters
+    public List<Vouch> getVouches() {
+        return vouches;
+    }
+
+    public void setVouches(List<Vouch> vouches) {
+        this.vouches = vouches;
+    }
+
+
 
 }

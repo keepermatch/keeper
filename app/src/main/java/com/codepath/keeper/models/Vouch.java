@@ -10,16 +10,83 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class Vouch {
 
+    // instance vars
     @SerializedName("_id")
-    public Id id;
-    public MongoDate created;
-    public Id voucher;
-    public Id vouchee;
-    public List<SubVouch> vouches = new ArrayList<SubVouch>();
-    public String photo;
+    private ObjectId objectId;
+    private GsonCompatibleDate created;
+    private ObjectId voucher;
+    private ObjectId vouchee;
+    @SerializedName("vouches")
+    public List<SubVouch> subVouches = new ArrayList<SubVouch>();
+    private String photo;
     @SerializedName("voucher_name")
-    public String voucherName;
-    public List<Id> likes = new ArrayList<Id>();
+    private String voucherName;
+    private List<ObjectId> likes = new ArrayList<ObjectId>();
+
+    // getters and setters
+    public ObjectId getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(ObjectId objectId) {
+        this.objectId = objectId;
+    }
+
+    public GsonCompatibleDate getCreated() {
+        return created;
+    }
+
+    public void setCreated(GsonCompatibleDate created) {
+        this.created = created;
+    }
+
+    public ObjectId getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(ObjectId voucher) {
+        this.voucher = voucher;
+    }
+
+    public ObjectId getVouchee() {
+        return vouchee;
+    }
+
+    public void setVouchee(ObjectId vouchee) {
+        this.vouchee = vouchee;
+    }
+
+    public List<SubVouch> getSubVouches() {
+        return subVouches;
+    }
+
+    public void setSubVouches(List<SubVouch> subVouches) {
+        this.subVouches = subVouches;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getVoucherName() {
+        return voucherName;
+    }
+
+    public void setVoucherName(String voucherName) {
+        this.voucherName = voucherName;
+    }
+
+    public List<ObjectId> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<ObjectId> likes) {
+        this.likes = likes;
+    }
 
 }
 
