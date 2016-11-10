@@ -142,4 +142,9 @@ public class User {
     public void setHeight(String height) {
         this.height = height;
     }
+
+    //TODO: put in backend or put in file db a hashmap of zipcode to location
+    public String getLocation() {
+        return "SOMA";
+    }
 }
