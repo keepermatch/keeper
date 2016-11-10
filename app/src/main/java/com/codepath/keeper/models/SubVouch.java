@@ -20,7 +20,10 @@ public class SubVouch {
     public String title;
     public String body;
     public List<Id> likes = new ArrayList<Id>();
+    @SerializedName("cancel_token")
     public String cancelToken;
+    @SerializedName("is_cancelled")
     public boolean isCancelled;
+    @SerializedName("is_confirmed")
     public boolean isConfirmed;
 }
