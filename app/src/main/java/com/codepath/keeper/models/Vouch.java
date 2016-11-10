@@ -18,7 +18,7 @@ public class Vouch {
     private ObjectId vouchee;
     @SerializedName("vouches")
     public List<SubVouch> subVouches = new ArrayList<SubVouch>();
-    @SerializedName("photoUrl")
+    @SerializedName("photo")
     private String photoUrl;
     @SerializedName("voucher_name")
     private String voucherName;
