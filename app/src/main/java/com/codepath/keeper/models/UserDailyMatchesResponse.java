@@ -3,7 +3,11 @@ package com.codepath.keeper.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.Generated;
 
@@ -18,12 +22,16 @@ public class UserDailyMatchesResponse {
     private boolean shouldVouch;
 
     // getters and setters
-    public String getFetchedDate() {
-        return fetchedDate;
-    }
+    public Date getFetchedDate() {
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        Date fetchedDate = null;
+        try {
+            fetchedDate = df.parse(this.fetchedDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-    public void setFetchedDate(String fetchedDate) {
-        this.fetchedDate = fetchedDate;
+        return fetchedDate;
     }
 
     public List<User> getUsers() {
@@ -41,4 +49,5 @@ public class UserDailyMatchesResponse {
     public void setShouldVouch(boolean shouldVouch) {
         this.shouldVouch = shouldVouch;
     }
+    
 }

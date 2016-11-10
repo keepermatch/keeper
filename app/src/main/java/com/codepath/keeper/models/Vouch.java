@@ -18,7 +18,8 @@ public class Vouch {
     private ObjectId vouchee;
     @SerializedName("vouches")
     public List<SubVouch> subVouches = new ArrayList<SubVouch>();
-    private String photo;
+    @SerializedName("photoUrl")
+    private String photoUrl;
     @SerializedName("voucher_name")
     private String voucherName;
     private List<ObjectId> likes = new ArrayList<ObjectId>();
@@ -64,12 +65,12 @@ public class Vouch {
         this.subVouches = subVouches;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public String getVoucherName() {
