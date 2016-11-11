@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Keeper</string>
+    <string name="facebook_app_id">661433064031275</string>
+    <string name="fb_login_protocol_scheme">fb661433064031275</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_new_user">NewUserActivity</string>
+    <string name="welcome_to_keeper">Welcome to Keeper</string>
 </resources>
