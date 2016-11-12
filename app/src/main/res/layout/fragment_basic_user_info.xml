@@ -13,89 +13,129 @@
     >
 
     <Button
-        android:text="Single"
+        android:text="@string/continue_to_advanced_new_user_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnContinue" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="35dp"
-        android:id="@+id/btnSingle" />
+        android:layout_alignParentStart="true">
 
-    <Button
-        android:text="Taken"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnSingle"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="40dp"
-        android:layout_marginEnd="40dp"
-        android:id="@+id/btnTaken" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llRelationshipStatus">
+        <TextView
+            android:text="@string/what_is_your_relationship_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvRelationshipStatus"
+            />
 
-    <Button
-        android:text="Girls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSingle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="99dp"
-        android:id="@+id/button8" />
+        <include layout="@layout/button_group_relationship_status"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+        </LinearLayout>
 
-    <Button
-        android:text="Guys"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button8"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button11" />
 
-    <Button
-        android:text="Both"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button11"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/button12" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llInterestedIn"
+            android:visibility="gone">
+        <TextView
+            android:text="@string/interested_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvInterestedIn"
+            />
 
-    <TextView
-        android:text="What is your relationship status?"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView3"
-        android:layout_above="@+id/btnTaken"
-        android:layout_toRightOf="@+id/button8"
-        android:layout_toEndOf="@+id/button8" />
+        <include layout="@layout/button_group_interested_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+            </LinearLayout>
 
-    <TextView
-        android:text="Interested in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button11"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/textView4" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llZipCode"
+            android:visibility="gone">
+        <TextView
+            android:text="@string/zip_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvZipcode"
 
-    <TextView
-        android:text="Zip code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button11"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="97dp"
-        android:id="@+id/textView5" />
+            />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        android:ems="10"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:id="@+id/editText"
-        android:hint="94103" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:id="@+id/etZipcode"
+            android:hint="@string/example_zipcode"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llOccupation"
+            android:visibility="gone">
+        <TextView
+            android:text="@string/what_is_your_occupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvOccupation"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/etOccupation"
+            android:hint="@string/product_manager_square"
+            />
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/llEducation"
+            android:visibility="gone">
+
+        <TextView
+            android:text="@string/education"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="@string/stanford_berkeley_mba"
+            android:id="@+id/etEducation"
+            />
+            </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>

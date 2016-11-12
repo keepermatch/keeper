@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="@string/ethnicity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sbHeight"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="22dp"
+        android:id="@+id/tvEthnicity" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:text="@string/american_indian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAmericanIndian" />
+
+        <Button
+            android:text="@string/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBlack" />
+
+        <Button
+            android:text="@string/east_asian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnEastAsian" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="@string/hispanic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnHispanic" />
+
+        <Button
+            android:text="@string/middle_eastern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnMiddleEastern" />
+
+        <Button
+            android:text="@string/pacific_islander"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnPacificIslander" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="@string/south_asian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSouthAsian"
+            android:layout_alignBaseline="@+id/btnWhite"
+            android:layout_alignBottom="@+id/btnWhite"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:text="@string/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnWhite"
+            android:layout_below="@+id/btnMiddleEastern"
+            android:layout_toRightOf="@+id/btnSouthAsian"
+            android:layout_toEndOf="@+id/btnSouthAsian" />
+
+        <Button
+            android:text="@string/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/BtnOther"
+            android:layout_alignBaseline="@+id/btnWhite"
+            android:layout_alignBottom="@+id/btnWhite"
+            android:layout_toRightOf="@+id/btnWhite"
+            android:layout_toEndOf="@+id/btnWhite" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -7,4 +7,49 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_new_user">NewUserActivity</string>
     <string name="welcome_to_keeper">Welcome to Keeper</string>
+    <string name="education">Education</string>
+    <string name="stanford_berkeley_mba">Stanford, Berkeley (MBA)</string>
+    <string name="product_manager_square">Product Manager @ Square</string>
+    <string name="what_is_your_occupation">What is your occupation?</string>
+    <string name="zip_code">Zip code</string>
+    <string name="interested_in">Interested in</string>
+    <string name="example_zipcode">94103</string>
+    <string name="height">Height</string>
+    <string name="ethnicity">Ethnicity</string>
+    <string name="american_indian">American Indian</string>
+    <string name="black">Black</string>
+    <string name="east_asian">East Asian</string>
+    <string name="hispanic">Hispanic</string>
+    <string name="middle_eastern">Middle Eastern</string>
+    <string name="pacific_islander">Pacific Islander</string>
+    <string name="south_asian">South Asian</string>
+    <string name="white">White</string>
+    <string name="other">Other</string>
+    <string name="religon">Religon</string>
+    <string name="agnostic">Agnostic</string>
+    <string name="atheist">Atheist</string>
+    <string name="buddhist">Buddhist</string>
+    <string name="christian">Christian</string>
+    <string name="hindu">Hindu</string>
+    <string name="jewish">Jewish</string>
+    <string name="muslim">Muslim</string>
+    <string name="catholic">Catholic</string>
+    <string name="spirtual">Spirtual</string>
+    <string name="other_religion">Other</string>
+    <string name="done">Done</string>
+    <string name="girls">Girls</string>
+    <string name="guys">Guys</string>
+    <string name="both">Both</string>
+    <string name="what_is_your_relationship_status">What is your relationship status?</string>
+    <string name="continue_to_advanced_new_user_info">Continue</string>
+    <string name="single">Single</string>
+    <string name="taken">Taken</string>
+    resources>
+    <string-array name="height_feet_inches">
+        <item>4\'-11\"</item>
+        <item>5\'-0\"</item>
+        <item>5\'-1\"</item>
+        <item>5\'-2\"</item>
+
+    </string-array>
 </resources>
