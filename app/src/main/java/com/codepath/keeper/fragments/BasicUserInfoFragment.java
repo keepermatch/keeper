@@ -4,6 +4,7 @@ package com.codepath.keeper.fragments;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -137,7 +138,12 @@ public class BasicUserInfoFragment extends Fragment {
 
     @OnClick(R.id.btnContinue)
     public void onTapContinue(Button button) {
-        
+        // Begin the transaction
+        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+        // Replace the contents of the container with the new fragment
+        ft.replace(R.id.frNewUser, new AdvancedUserInfoFragment());
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
 }
