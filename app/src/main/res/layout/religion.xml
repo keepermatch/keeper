@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="@string/religon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSouthAsian"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/tvReligion" />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+
+    <Button
+        android:text="@string/agnostic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvReligion"
+        android:layout_toLeftOf="@+id/btnMiddleEastern"
+        android:layout_toStartOf="@+id/btnMiddleEastern"
+        android:id="@+id/btnAgnostic" />
+
+    <Button
+        android:text="@string/christian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAgnostic"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btnChristian" />
+
+    <Button
+        android:text="@string/hindu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAtheist"
+        android:layout_toRightOf="@+id/btnChristian"
+        android:layout_toEndOf="@+id/btnChristian"
+        android:id="@+id/btnHindu" />
+
+    <Button
+        android:text="@string/muslim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnChristian"
+        android:layout_toLeftOf="@+id/btnHindu"
+        android:layout_toStartOf="@+id/btnHindu"
+        android:id="@+id/btnMuslim" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:text="@string/catholic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/btnMuslim"
+            android:layout_toRightOf="@+id/btnChristian"
+            android:layout_toEndOf="@+id/btnChristian"
+            android:id="@+id/btnCatholic" />
+
+
+
+        <Button
+            android:text="@string/jewish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnJewish"
+            android:layout_below="@+id/btnBuddhist"
+            android:layout_alignRight="@+id/btnSpiritual"
+            android:layout_alignEnd="@+id/btnSpiritual" />
+
+        <Button
+            android:text="@string/buddhist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBuddhist"
+            android:layout_alignBaseline="@+id/btnAtheist"
+            android:layout_alignBottom="@+id/btnAtheist"
+            android:layout_toRightOf="@+id/btnAtheist"
+            android:layout_toEndOf="@+id/btnAtheist" />
+
+        <Button
+            android:text="@string/atheist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAtheist"
+            android:layout_above="@+id/btnChristian"
+            android:layout_toRightOf="@+id/btnAgnostic"
+            android:layout_toEndOf="@+id/btnAgnostic" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+
+
+        <Button
+            android:text="@string/spirtual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnJewish"
+            android:layout_toRightOf="@+id/btnCatholic"
+            android:layout_toEndOf="@+id/btnCatholic"
+            android:id="@+id/btnSpiritual" />
+
+        <Button
+            android:text="@string/other_religion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnMuslim"
+            android:layout_toLeftOf="@+id/btnCatholic"
+            android:layout_toStartOf="@+id/btnCatholic"
+            android:id="@+id/btnOther" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

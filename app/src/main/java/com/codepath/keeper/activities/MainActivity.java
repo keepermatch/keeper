@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.codepath.keeper.R;
@@ -58,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
                                 "Auth Token: "
                                 + loginResult.getAccessToken().getToken()
                 );
+
+
+
             }
 
             @Override
@@ -127,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
+    public void onCreateNewUserBtnClick(View view) {
+        Intent i = new Intent(getApplicationContext(), NewUserActivity.class);
+        startActivity(i);
+    }
 }

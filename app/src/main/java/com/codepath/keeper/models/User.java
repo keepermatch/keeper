@@ -34,8 +34,18 @@ public class User {
     @SerializedName("_id")
     private ObjectId objectId;
     private String height;
+    @SerializedName("is_single")
+    private boolean isSingle;
 
     // getters and setters
+
+    public boolean isSingle() {
+        return isSingle;
+    }
+
+    public void setSingle(boolean single) {
+        isSingle = single;
+    }
     public List<Vouch> getVouchesReceived() {
         return vouchesReceived;
     }
