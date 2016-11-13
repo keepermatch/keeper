@@ -9,11 +9,25 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvHeight" />
 
-    <Spinner
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <SeekBar
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:max="36"
+        android:progress="12"
+        android:id="@+id/seekBar" />
+
+    <TextView
+        android:text="5-6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/height_feet_inches"
-        android:id="@+id/spHeight" />
+        android:id="@+id/textView" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

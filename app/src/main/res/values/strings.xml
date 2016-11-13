@@ -15,7 +15,7 @@
     <string name="interested_in">Interested in</string>
     <string name="example_zipcode">94103</string>
     <string name="height">Height</string>
-    <string name="ethnicity">Ethnicity</string>
+    <string name="ethnicity">Ethnicity (optional*)</string>
     <string name="american_indian">American Indian</string>
     <string name="black">Black</string>
     <string name="east_asian">East Asian</string>
@@ -25,7 +25,7 @@
     <string name="south_asian">South Asian</string>
     <string name="white">White</string>
     <string name="other">Other</string>
-    <string name="religon">Religon</string>
+    <string name="religion">Religion (optional*)</string>
     <string name="agnostic">Agnostic</string>
     <string name="atheist">Atheist</string>
     <string name="buddhist">Buddhist</string>
@@ -44,6 +44,7 @@
     <string name="continue_to_advanced_new_user_info">Continue</string>
     <string name="single">Single</string>
     <string name="taken">Taken</string>
+    <string name="ethnicity_and_religion_advice">* omitting ethnicity and religion may decrease your profile visibility to users with filters, so we reccomend setting these</string>
     resources>
     <string-array name="height_feet_inches">
         <item>4\'-11\"</item>
