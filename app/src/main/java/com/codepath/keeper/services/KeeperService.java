@@ -1,5 +1,6 @@
 package com.codepath.keeper.services;
 
+import com.codepath.keeper.models.UserFriendsResponse;
 import com.codepath.keeper.models.VouchResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +24,9 @@ public class KeeperService {
         @GET("/userVouches/{userId}")
         Call<VouchResponse> vouchResponse(
                 @Path("userId") String userId);
+
+        @GET("/userFriends/{userId}/yes")
+        Call<UserFriendsResponse> userFriendsResponse(@Path("userId") String userId);
 
 
     }

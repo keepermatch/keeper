@@ -75,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
         callGetVouchList(TEST_USER_ID);
         callGetUserDailyMatches();
+        Intent intent = new Intent(this,VouchForAFriend.class);
+        startActivity(intent);
     }
 
     @Override
@@ -117,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
                 for (Vouch vouch : vouchResponse.getVouches()) {
                     //TODO: michaelsova here is how you parse through vouch list
+
                     Log.d("DEBUG", vouch.getSubVouches().get(0).getBody());
                 }
             }
@@ -127,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     public void onCreateNewUserBtnClick(View view) {
         // make API call to save
