@@ -23,6 +23,8 @@ public class KeeperService {
         @GET("/userVouches/{userId}")
         Call<VouchResponse> vouchResponse(
                 @Path("userId") String userId);
+
+
     }
 
     public static Keeper createInstance() {

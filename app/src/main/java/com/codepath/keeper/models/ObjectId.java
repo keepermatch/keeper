@@ -11,7 +11,7 @@ public class ObjectId {
     @SerializedName("$oid")
     private String id;
 
-    // getters an
+    // getters and setters
     public String getId() {
         return id;
     }
