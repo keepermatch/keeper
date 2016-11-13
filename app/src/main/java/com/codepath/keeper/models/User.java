@@ -15,6 +15,8 @@ import javax.annotation.Generated;
 @Generated("org.jsonschema2pojo")
 public class User {
 
+    public static final String AGNOSTIC = "agnostic";
+
     // instance vars
     @SerializedName("vouches_received")
     private List<Vouch> vouchesReceived = new ArrayList<Vouch>();
@@ -157,4 +159,11 @@ public class User {
     public String getLocation() {
         return "SOMA";
     }
+
+    public static String getHeightInFeetAndInches(int inches) {
+        int feet = inches / 12;
+        int leftover = inches % 12;
+        return(feet + "'-" + leftover + "\"");
+    }
+
 }

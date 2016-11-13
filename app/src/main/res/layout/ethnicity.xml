@@ -92,7 +92,7 @@
             android:text="@string/other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/BtnOther"
+            android:id="@+id/btnOtherEthnicity"
             android:layout_alignBaseline="@+id/btnWhite"
             android:layout_alignBottom="@+id/btnWhite"
             android:layout_toRightOf="@+id/btnWhite"

@@ -14,8 +14,6 @@ public class NewUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_user);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
 }

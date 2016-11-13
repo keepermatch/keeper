@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity {
                                 + loginResult.getAccessToken().getToken()
                 );
 
-
-
             }
 
             @Override
@@ -130,8 +128,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     public void onCreateNewUserBtnClick(View view) {
+        // make API call to save
+
+        // launch advanced user info
         Intent i = new Intent(getApplicationContext(), NewUserActivity.class);
         startActivity(i);
     }
