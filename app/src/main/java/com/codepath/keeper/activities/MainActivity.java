@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codepath.keeper.R;
+import com.codepath.keeper.models.LoginRequest;
 import com.codepath.keeper.models.User;
 import com.codepath.keeper.models.UserDailyMatchesResponse;
 import com.codepath.keeper.models.Vouch;
@@ -52,29 +53,43 @@ public class MainActivity extends AppCompatActivity {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                info.setText(
-                        "User ID: "
-                                + loginResult.getAccessToken().getUserId()
-                                + "\n" +
-                                "Auth Token: "
-                                + loginResult.getAccessToken().getToken()
-                );
-
+                Toast.makeText(getApplicationContext(), "Logged into FB", Toast.LENGTH_SHORT).show();
+                LoginRequest loginRequest = new LoginRequest();
+                loginRequest.setAccessToken(loginResult.getAccessToken().getToken());
+                loginToKeeper(loginRequest);
             }
 
             @Override
             public void onCancel() {
-                info.setText("Login attempt canceled.");
             }
 
             @Override
             public void onError(FacebookException e) {
-                info.setText("Login attempt failed.");
             }
         });
 
-        callGetVouchList(TEST_USER_ID);
-        callGetUserDailyMatches();
+//        callGetVouchList(TEST_USER_ID);
+//        callGetUserDailyMatches();
+    }
+
+    private void loginToKeeper(LoginRequest loginRequest) {
+        Toast.makeText(this, "Logging in to keeper", Toast.LENGTH_SHORT).show();
+        KeeperService.Keeper keeper = KeeperService.createInstance();
+        Call<User> call = keeper.login(loginRequest);
+        call.enqueue(new Callback<User>() {
+
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                User user = response.body();
+                Toast.makeText(getApplicationContext(), "Welcome, " + user.getFirstName(), Toast.LENGTH_SHORT).show();
+                createNewUser();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.d("DEBUG", t.toString());
+            }
+        });
     }
 
     @Override
@@ -128,11 +143,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void onCreateNewUserBtnClick(View view) {
-        // make API call to save
-
-        // launch advanced user info
+    public void createNewUser() {
+        // create new user
         Intent i = new Intent(getApplicationContext(), NewUserActivity.class);
         startActivity(i);
     }
+
 }
