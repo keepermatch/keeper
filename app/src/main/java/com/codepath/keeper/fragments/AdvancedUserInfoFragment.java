@@ -3,12 +3,15 @@ package com.codepath.keeper.fragments;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.codepath.keeper.R;
 import com.codepath.keeper.models.User;
@@ -110,10 +113,17 @@ public class AdvancedUserInfoFragment extends Fragment {
     }
 
     @OnClick(R.id.btnUserDone)
-    public void onTapUserDone(Button button) {
-        // make api call to save
-
-        // start swiping action for self
+    public void onUserDone() {
+        // call api
+        Toast.makeText(getContext(), "Posting new user data to Keeper API", Toast.LENGTH_SHORT).show();
+        //TODO make api call
+        
+        // close fragment
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.remove(this);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+        ft.commit();
     }
 
 }
