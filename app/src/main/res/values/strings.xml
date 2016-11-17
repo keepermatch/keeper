@@ -46,6 +46,8 @@
     <string name="single">Single</string>
     <string name="taken">Taken</string>
     <string name="ethnicity_and_religion_advice">* omitting ethnicity and religion may decrease your profile visibility to users with filters, so we reccomend setting these</string>
+    <string name="by">By</string>
+    <string name="see_my_vouches">See my vouches</string>
     resources>
     <string-array name="height_feet_inches">
         <item>4\'-11\"</item>

@@ -48,7 +48,10 @@
             android:name=".activities.NewUserActivity"
             android:label="@string/title_activity_new_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.VouchForAFriend"></activity>
+        <activity android:name=".activities.VouchForAFriend" />
+        <activity android:name=".activities.MatchmakingMenuActivity" />
+        <activity android:name=".activities.VouchListActivity" />
+        <activity android:name=".activities.SwipeActivity"></activity>
     </application>
 
 </manifest>
