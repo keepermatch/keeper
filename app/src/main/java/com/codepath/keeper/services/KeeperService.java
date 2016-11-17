@@ -1,10 +1,9 @@
 package com.codepath.keeper.services;
 
-import retrofit2.http.GET;
-
-import com.codepath.keeper.models.UserFriendsResponse;
 import com.codepath.keeper.models.LoginRequest;
+import com.codepath.keeper.models.UpdateUserRequest;
 import com.codepath.keeper.models.User;
+import com.codepath.keeper.models.UserFriendsResponse;
 import com.codepath.keeper.models.VouchResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,6 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -33,13 +33,17 @@ public class KeeperService {
         Call<VouchResponse> vouchResponse(
                 @Path("userId") String userId);
 
-
         @GET("/userFriends/{userId}/yes")
-        Call<UserFriendsResponse> userFriendsResponse(@Path("userId") String userId);
+        Call<UserFriendsResponse> userFriendsResponse(
+                @Path("userId") String userId);
 
         @POST("/facebook_login")
         Call<User> login(
                 @Body LoginRequest loginRequest);
+
+        @PUT("/facebook_login")
+        Call<User> updateUser(
+                @Body UpdateUserRequest updateUserRequest);
 
     }
 
