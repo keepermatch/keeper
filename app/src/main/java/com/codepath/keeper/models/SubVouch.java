@@ -28,6 +28,16 @@ public class SubVouch {
     @SerializedName("is_confirmed")
     private boolean isConfirmed;
 
+    public Vouch getParentVouch() {
+        return parentVouch;
+    }
+
+    public void setParentVouch(Vouch parentVouch) {
+        this.parentVouch = parentVouch;
+    }
+
+    private Vouch parentVouch;
+
     // getters and setters
     public ObjectId getObjectId() {
         return objectId;

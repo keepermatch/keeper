@@ -1,20 +1,20 @@
 package com.codepath.keeper.Adapters;
 
-        import android.content.Context;
-        import android.support.v7.widget.RecyclerView;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ImageView;
-        import android.widget.TextView;
+import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-        import com.codepath.keeper.R;
-        import com.codepath.keeper.models.SubVouch;
+import com.codepath.keeper.R;
+import com.codepath.keeper.models.SubVouch;
 
-        import java.util.List;
+import java.util.List;
 
-        import butterknife.BindView;
-        import butterknife.ButterKnife;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by matthewlent on 11/16/16.
@@ -62,7 +62,8 @@ public class SubVouchAdapter extends RecyclerView.Adapter<SubVouchAdapter.ViewHo
         TextView tvVoucherFirstName = holder.tvVoucherFirstName;
 
         tvVouchTitle.setText(subVouch.getTitle());
-
+        tvVouchBody.setText(subVouch.getBody());
+        tvLikeCount.setText(Integer.toString(subVouch.getLikes().size()));
     }
 
     @Override
