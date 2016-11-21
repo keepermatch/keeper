@@ -4,7 +4,7 @@
     package="com.codepath.keeper">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -49,10 +49,11 @@
             android:name=".activities.NewUserActivity"
             android:label="@string/title_activity_new_user"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.VouchForAFriend" />
+        <activity android:name=".activities.VouchForAFriendActivity" />
         <activity android:name=".activities.MatchmakingMenuActivity" />
         <activity android:name=".activities.VouchListActivity" />
-        <activity android:name=".activities.SwipeActivity"></activity>
+        <activity android:name=".activities.SwipeActivity" />
+        <activity android:name=".activities.MatchmakerActivity"></activity>
     </application>
 
 </manifest>

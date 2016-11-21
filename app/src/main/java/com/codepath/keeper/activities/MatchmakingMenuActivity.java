@@ -21,12 +21,17 @@ public class MatchmakingMenuActivity extends AppCompatActivity {
     }
 
     public void onVouchForAFriendClick(View view) {
-        Intent intent = new Intent(this, VouchForAFriend.class);
+        Intent intent = new Intent(this, VouchForAFriendActivity.class);
         startActivity(intent);
     }
 
     public void onSwipeForAFriendClick(View view) {
         Intent intent = new Intent(this, SwipeActivity.class);
+        startActivity(intent);
+    }
+
+    public void onMatchmakerClick(View view) {
+        Intent intent = new Intent(this, MatchmakerActivity.class);
         startActivity(intent);
     }
 }

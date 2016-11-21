@@ -32,6 +32,13 @@
             android:layout_height="wrap_content"
             android:onClick="onVouchForAFriendClick"
             android:text="Vouch for a friend"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onMatchmakerClick"
+            android:text="Get Matchmakers"/>
+
     </LinearLayout>
 
 </RelativeLayout>
