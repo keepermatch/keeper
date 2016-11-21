@@ -1,6 +1,7 @@
 package com.codepath.keeper.services;
 
 import com.codepath.keeper.models.LoginRequest;
+import com.codepath.keeper.models.MatchMakersResponse;
 import com.codepath.keeper.models.UpdateUserRequest;
 import com.codepath.keeper.models.User;
 import com.codepath.keeper.models.UserFriendsResponse;
@@ -35,6 +36,10 @@ public class KeeperService {
 
         @GET("/userFriends/{userId}/yes")
         Call<UserFriendsResponse> userFriendsResponse(
+                @Path("userId") String userId);
+
+        @GET("/matchmakers/{userId}")
+        Call<MatchMakersResponse> matchMakersResponse(
                 @Path("userId") String userId);
 
         @POST("/facebook_login")

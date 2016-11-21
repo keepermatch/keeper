@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 
 import com.codepath.keeper.Adapters.MatchmakersAdapter;
 import com.codepath.keeper.R;
+import com.codepath.keeper.models.MatchMakersResponse;
 import com.codepath.keeper.models.User;
-import com.codepath.keeper.models.UserFriendsResponse;
 import com.codepath.keeper.services.KeeperService;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class MatchmakerFragment extends Fragment{
         super.onCreate(savedInstanceState);
 
         //initialize friends
-        callGetFriendsList(TEST_USER_ID);
+        callGetMatchMakers(TEST_USER_ID);
     }
 
     @Override
@@ -53,26 +53,28 @@ public class MatchmakerFragment extends Fragment{
         return view;
     }
 
-    private void callGetFriendsList(String testUserId) {
+    private void callGetMatchMakers(String testUserId) {
         KeeperService.Keeper keeper = KeeperService.createInstance();
-        Call<UserFriendsResponse> call = keeper.userFriendsResponse(testUserId);
-        call.enqueue(new Callback<UserFriendsResponse>() {
+        Call<MatchMakersResponse> call = keeper.matchMakersResponse(testUserId);
+        call.enqueue(new Callback<MatchMakersResponse>() {
             @Override
-            public void onResponse(Call<UserFriendsResponse> call, Response<UserFriendsResponse> response) {
-                UserFriendsResponse userFriendsResponse = response.body();
-
-                matchmakersArrayList.addAll(userFriendsResponse.getFriends());
+            public void onResponse(Call<MatchMakersResponse> call, Response<MatchMakersResponse> response) {
+                MatchMakersResponse matchMakersResponse = response.body();
+                Log.d("DEBUG", "string" + matchMakersResponse.toString());
+                matchmakersArrayList.addAll(matchMakersResponse.getMatchMakers());
                 matchmakerAdapter.notifyDataSetChanged();
-                for (User friend : userFriendsResponse.getFriends()) {
+                for (User friend : matchMakersResponse.getMatchMakers()) {
 
                     Log.d("DEBUG", friend.getFirstName());
                 }
             }
 
             @Override
-            public void onFailure(Call<UserFriendsResponse> call, Throwable t) {
+            public void onFailure(Call<MatchMakersResponse> call, Throwable t) {
                 Log.d("DEBUG", t.toString());
+
             }
+
         });
     }
 }
