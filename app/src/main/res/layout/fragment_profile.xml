@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvProfileEducation"
-                tools:text="Brown University, University of Cambridge"//>
+                tools:text="Brown University, University of Cambridge"/>
 
         </LinearLayout>
 
@@ -77,14 +77,14 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                tools:src="@mipmap/ic_launcher"//>
+                tools:src="@mipmap/ic_launcher"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="Jewish"
                 android:id="@+id/tvProfileReligion"
-                tools:src="@mipmap/ic_launcher"//>
+                tools:src="@mipmap/ic_launcher"/>
 
         </LinearLayout>
 
