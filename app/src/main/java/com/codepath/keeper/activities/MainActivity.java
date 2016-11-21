@@ -27,7 +27,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TEST_USER_ID = "55cbb222b63f760008d002b6";
+    public static final String TEST_USER_ID = "55cbb222b63f760008d002b6";
     private TextView info;
     private LoginButton loginButton;
     private CallbackManager callbackManager;

@@ -66,7 +66,7 @@ public class Vouch {
     }
 
     public String getPhotoUrl() {
-        return photoUrl;
+        return photoUrl.replace("http://graph", "https://graph");
     }
 
     public void setPhotoUrl(String photoUrl) {

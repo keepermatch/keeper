@@ -15,7 +15,6 @@ import com.codepath.keeper.models.Vouch;
 import com.codepath.keeper.models.VouchResponse;
 import com.codepath.keeper.services.KeeperService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,7 +29,10 @@ public class VouchListFragment extends Fragment {
     @BindView(R.id.rvVouches)
     RecyclerView rvVouches;
 
-    private static final String TEST_USER_ID = "55cbb222b63f760008d002b6";
+    public void setVouchList(List<Vouch> vouchList) {
+        this.mVouchList = vouchList;
+    }
+
     private List<Vouch> mVouchList;
     private Unbinder mUnbinder;
     private VouchAdapter mAdapter;
@@ -46,10 +48,16 @@ public class VouchListFragment extends Fragment {
         mUnbinder.unbind();
     }
 
+    public static VouchListFragment newInstance(List<Vouch> vouches) {
+        VouchListFragment vouchListFragment = new VouchListFragment();
+        vouchListFragment.setVouchList(vouches);
+        return vouchListFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        callGetVouchList(TEST_USER_ID);
+
     }
 
     @Override
@@ -58,16 +66,14 @@ public class VouchListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_vouch_list, container, false);
         mUnbinder = ButterKnife.bind(this, view);
 
-        mVouchList = new ArrayList<Vouch>();
-
-        mAdapter= new VouchAdapter(getContext(), mVouchList);
+        mAdapter = new VouchAdapter(getContext(), mVouchList);
         rvVouches.setAdapter(mAdapter);
         rvVouches.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return view;
     }
 
-    private void callGetVouchList(String testUserId) {
+    public void callGetVouchesReceivedList(String testUserId) {
         KeeperService.Keeper keeper = KeeperService.createInstance();
         Call<VouchResponse> call = keeper.vouchResponse(testUserId);
         call.enqueue(new Callback<VouchResponse>() {

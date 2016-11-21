@@ -9,19 +9,22 @@
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
-        <HorizontalScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    tools:src="@mipmap/ic_launcher"/>
-            </LinearLayout>
+        <!--<HorizontalScrollView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="200dp">-->
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content">-->
+                <!---->
+            <!--</LinearLayout>-->
 
-        </HorizontalScrollView>
+        <!--</HorizontalScrollView>-->
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:id="@+id/ivProfilePicture"
+            tools:src="@mipmap/ic_launcher" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,7 +34,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="San Francisco, CA - (5-11)"/>
+            tools:text="San Francisco, CA - (5-11)"
+            android:id="@+id/tvProfileLocationAndHeight" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -88,9 +92,14 @@
 
         </LinearLayout>
 
-
-
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/flProfileVouches">
+        </FrameLayout>
 
     </LinearLayout>
+
+
 
 </FrameLayout>
