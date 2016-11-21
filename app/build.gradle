@@ -54,7 +54,7 @@ dependencies {
     }
 
     // Picasso for remote image loading
-    
+
 
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'com.loopj.android:android-async-http:1.4.9'
@@ -70,8 +70,8 @@ dependencies {
     compile 'jp.wasabeef:picasso-transformations:2.1.0'
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     compile 'com.github.chenupt.android:springindicator:1.0.2@aar'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     provided 'org.glassfish:javax.annotation:10.0-b28'
-    compile 'com.android.support:recyclerview-v7:24.2.1'
 }

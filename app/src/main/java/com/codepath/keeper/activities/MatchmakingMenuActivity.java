@@ -15,15 +15,18 @@ public class MatchmakingMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
     }
 
-
     public void onClickVouchList(View view) {
         Intent i = new Intent(this, VouchListActivity.class);
         startActivity(i);
     }
 
-
     public void onVouchForAFriendClick(View view) {
-        Intent intent = new Intent(this,VouchForAFriend.class);
+        Intent intent = new Intent(this, VouchForAFriend.class);
+        startActivity(intent);
+    }
+
+    public void onSwipeForAFriendClick(View view) {
+        Intent intent = new Intent(this, SwipeActivity.class);
         startActivity(intent);
     }
 }

@@ -11,17 +11,24 @@
     tools:context="com.codepath.keeper.activities.MatchmakingMenuActivity">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onClickVouchList"
             android:text="@string/see_my_vouches"/>
 
+         <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSwipeForAFriendClick"
+            android:text="Swipe for a friend"/>
+
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onVouchForAFriendClick"
             android:text="Vouch for a friend"/>
