@@ -3,17 +3,22 @@ package com.codepath.keeper.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
+
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class User {
+public class User implements Serializable {
 
     public static final String AGNOSTIC = "agnostic";
 
@@ -64,15 +69,31 @@ public class User {
         this.gender = gender;
     }
 
-    public Date getBirthday() {
-        DateFormat df = new SimpleDateFormat("mm/dd/yyyy");
-        Date birthday = null;
+    private Date getBirthdayFromString(String birthday, String dateFormat) {
+        DateFormat df = new SimpleDateFormat(dateFormat);
         try {
-            birthday = df.parse(this.birthday);
+            return df.parse(birthday);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return birthday;
+        return null;
+    }
+
+    public Date getBirthdayAsDate() {
+        String format1 = "MM/dd/yyyy";
+        Date date1 = getBirthdayFromString(this.birthday, format1);
+        if (date1 != null) return date1;
+
+        String format2 = "YYYY-MM-dd";
+        Date date2 = getBirthdayFromString(this.birthday, format2);
+        if (date2 != null) return date2;
+
+        return new Date();
+    }
+
+    public int getAge() {
+        Years years = Years.yearsBetween(new LocalDate(getBirthdayAsDate()), new LocalDate());
+        return years.getYears();
     }
 
     public List<String> getEthnicity() {
@@ -84,7 +105,7 @@ public class User {
     }
 
     public String getProfilePicture() {
-        return profilePicture;
+        return profilePicture.replace("http://graph", "https://graph");
     }
 
     public void setProfilePicture(String profilePicture) {
@@ -100,6 +121,10 @@ public class User {
     }
 
     public List<String> getPictureUrls() {
+        for (final ListIterator<String> i = pictureUrls.listIterator(); i.hasNext();) {
+            final String element = i.next();
+            i.set(element.replace("http://graph", "https://graph"));
+        }
         return pictureUrls;
     }
 

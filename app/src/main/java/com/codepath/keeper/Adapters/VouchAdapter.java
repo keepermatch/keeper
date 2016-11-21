@@ -2,6 +2,7 @@ package com.codepath.keeper.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,8 @@ public class VouchAdapter extends RecyclerView.Adapter<VouchAdapter.ViewHolder> 
         tvVouchTitle.setText(subVouch.getTitle());
         tvVouchBody.setText(subVouch.getBody());
         tvLikeCount.setText(Integer.toString(subVouch.getLikes().size()));
+        Log.d("DEBUG", subVouch.getBody());
+        Log.d("DEBUG", vouch.getPhotoUrl());
         Picasso.with(getContext()).load(vouch.getPhotoUrl()).into(ivVoucherPicture);
         tvVoucherFirstName.setText(vouch.getVoucherName());
     }
