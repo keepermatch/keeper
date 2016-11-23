@@ -84,7 +84,7 @@ public class User implements Serializable {
         Date date1 = getBirthdayFromString(this.birthday, format1);
         if (date1 != null) return date1;
 
-        String format2 = "YYYY-MM-dd";
+        String format2 = "yyyy-MM-dd";
         Date date2 = getBirthdayFromString(this.birthday, format2);
         if (date2 != null) return date2;
 

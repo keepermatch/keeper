@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.keeper.Adapters.ProfilePicturesAdapter;
 import com.codepath.keeper.R;
 import com.codepath.keeper.models.User;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -30,13 +30,14 @@ public class ProfileFragment extends Fragment {
     private static final String NULL_IN_STRING = "null";
     public static final String USER_KEY = "user";
     private User mUser;
-    @BindView(R.id.ivProfilePicture) ImageView ivProfilePicture;
     @BindView(R.id.tvProfileNameAndAge) TextView tvProfileNameAndAge;
     @BindView(R.id.tvProfileEducation) TextView tvProfileEducation;
     @BindView(R.id.tvProfileOccupation) TextView tvProfileOccupation;
     @BindView(R.id.tvProfileReligion) TextView tvProfileReligion;
     @BindView(R.id.tvProfileLocationAndHeight) TextView tvProfileLocationAndHeight;
+    @BindView(R.id.rvProfilePictures) RecyclerView rvProfilePictures;
     private Unbinder mUnbinder;
+    private List<String> mProfilePictureUrls;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -77,15 +78,16 @@ public class ProfileFragment extends Fragment {
         List<String> pictures = mUser.getPictureUrls();
         loadVouchesFragment();
 
-
         if (locationAndHeight != null) tvProfileLocationAndHeight.setText(locationAndHeight);
         if (education != null) tvProfileEducation.setText(education);
         if (nameAndAge != null) tvProfileNameAndAge.setText(nameAndAge);
         if (occupation != null) tvProfileOccupation.setText(occupation);
         if (pictures.size() > 0) {
-            String pic = pictures.get(0);
-            Log.d("DEBUG", pic);
-            Picasso.with(getActivity()).load(pic).into(ivProfilePicture);
+            mProfilePictureUrls = pictures;
+            ProfilePicturesAdapter profilePicturesAdapter = new ProfilePicturesAdapter(getContext(), mProfilePictureUrls);
+            rvProfilePictures.setAdapter(profilePicturesAdapter);
+            LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+            rvProfilePictures.setLayoutManager(horizontalLayoutManager);
         }
 
         return view;
