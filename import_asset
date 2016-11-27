@@ -1,0 +1,30 @@
+#!/bin/bash
+
+KEEPER_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+which convert 2>&1 1>/dev/null
+if [[ "$?" != "0" ]]
+then
+  echo "This script requires Imagemagick. To install, run the following command:"
+  echo
+  echo "    brew install imagemagick"
+  echo
+  exit 2
+fi
+
+
+if [[ -z "$1" || -z "$2" || "$1" == "-h" ]]
+then
+  echo "Usage: $0 IMPORT_TARGET OUTPUT_FILENAME"
+  echo
+  echo "    Note: Use the @3x image for correct import sizing. If no @3x iOS"
+  echo "          image is available, fix this script or don't use it."
+  exit 4
+fi
+
+set -e
+
+cp "$1" "$KEEPER_ROOT/app/src/main/res/drawable-xxhdpi/$2"
+convert "$1" -resize 33% "$KEEPER_ROOT/app/src/main/res/drawable-mdpi/$2"
+convert "$1" -resize 50% "$KEEPER_ROOT/app/src/main/res/drawable-hdpi/$2"
+convert "$1" -resize 67% "$KEEPER_ROOT/app/src/main/res/drawable-xhdpi/$2"

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.codepath.keeper.activities.MainActivity">
+    tools:mContext="com.codepath.keeper.activities.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -24,27 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:visibility="invisible"
         />
 
-    <Button
-        android:text="Main Menu"
-        android:layout_width="wrap_content"
-        android:onClick="onClickMainMenu"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/btnLaunchMainMenu" />
 
-    <Button
-        android:text="Create New User"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onCreateNewUserClick"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/btnCreateNewUser" />
 
 
 </RelativeLayout>

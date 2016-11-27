@@ -2,13 +2,14 @@ package com.codepath.keeper.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class Vouch {
+public class Vouch implements Serializable {
 
     // instance vars
     @SerializedName("_id")

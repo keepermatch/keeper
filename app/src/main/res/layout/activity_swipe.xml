@@ -8,18 +8,90 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.codepath.keeper.activities.SwipeActivity">
+    tools:mContext="com.codepath.keeper.activities.SwipeActivity">
 
     <!-- https://github.com/aaronbond/SwipeDeck2 -->
 
-
-    <FrameLayout
-        android:id="@+id/flProfilePlaceholder"
+    <com.daprlabs.aaron.swipedeck.layouts.SwipeFrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:swipedeck="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:id="@+id/swipeLayout"
+        android:orientation="vertical">
 
-    </FrameLayout>
+        <com.daprlabs.aaron.swipedeck.SwipeDeck
+            android:id="@+id/swipe_deck"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:padding="2dp"
+            swipedeck:max_visible="5"
+            swipedeck:card_spacing="2dp"
+            swipedeck:swipe_enabled="true">
+
+
+        </com.daprlabs.aaron.swipedeck.SwipeDeck>
+
+        <Button
+            android:id="@+id/btnSwipeLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:text="X" />
+        <Button
+            android:id="@+id/btnSwipeKeep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|center"
+            android:text="*" />
+        <Button
+            android:id="@+id/btnSwipeRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:text="Heart" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    tools:src="@mipmap/ic_launcher"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom|left"
+                    android:id="@+id/ivMatchmakeePhoto" />
+
+                <TextView
+                    tools:text="Swiping for Matthew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:id="@+id/tvMatchmakeeName" />
+
+                <Button
+                    android:text="Adjust Filters"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:id="@+id/btnAdjustFilters"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+
+    </com.daprlabs.aaron.swipedeck.layouts.SwipeFrameLayout>
+
+
 </RelativeLayout>

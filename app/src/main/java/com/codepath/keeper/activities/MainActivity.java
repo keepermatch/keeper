@@ -2,6 +2,7 @@ package com.codepath.keeper.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,8 @@ import com.codepath.keeper.models.LoginRequest;
 import com.codepath.keeper.models.User;
 import com.codepath.keeper.services.KeeperService;
 import com.crashlytics.android.Crashlytics;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView info;
     private LoginButton loginButton;
     private CallbackManager callbackManager;
+    private AccessTokenTracker mAccessTokenTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
         Fabric.with(this, new Crashlytics());
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
+
+        mAccessTokenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
+                updateWithToken(newAccessToken);
+            }
+        };
+        updateWithToken(AccessToken.getCurrentAccessToken());
 
         setContentView(R.layout.activity_main);
         info = (TextView)findViewById(R.id.info);
@@ -63,6 +75,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void updateWithToken(final AccessToken currentAccessToken) {
+
+        int SPLASH_TIME_OUT = 5000;
+
+        if (currentAccessToken != null) {
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    //loginButton.setVisibility(View.GONE);
+                    LoginRequest lr = new LoginRequest();
+                    lr.setAccessToken(currentAccessToken.getToken().toString());
+                    loginToKeeper(lr);
+
+                }
+            }, SPLASH_TIME_OUT);
+        } else {
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                   loginButton.setVisibility(View.VISIBLE);
+                }
+            }, SPLASH_TIME_OUT);
+        }
+    }
+
+
+
     private void loginToKeeper(LoginRequest loginRequest) {
         Toast.makeText(this, "Logging in to keeper", Toast.LENGTH_SHORT).show();
         KeeperService.Keeper keeper = KeeperService.createInstance();
@@ -71,13 +112,26 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                User user = response.body();
-                Toast.makeText(getApplicationContext(), "Welcome, " + user.getFirstName(), Toast.LENGTH_SHORT).show();
-            }
+                if (response.raw().code() != 200) {
+                    loginButton.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(), "Issue logging into keeper", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    loginButton.setVisibility(View.GONE);
+                    User user = response.body();
+                    Toast.makeText(getApplicationContext(), "Welcome, " + user.getFirstName(), Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent(getApplicationContext(), MatchmakingMenuActivity.class);
+                    i.putExtra(User.CURRENT_USER, user);
+                    startActivity(i);
+                }
+           }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                loginButton.setVisibility(View.VISIBLE);
                 Log.d("DEBUG", t.toString());
+
             }
         });
 
@@ -89,13 +143,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void onClickMainMenu(View view) {
-        Intent i = new Intent(this, MatchmakingMenuActivity.class);
-        startActivity(i);
-    }
 
-    public void onCreateNewUserClick(View view) {
-        Intent i = new Intent(getApplicationContext(), NewUserActivity.class);
-        startActivity(i);
-    }
 }

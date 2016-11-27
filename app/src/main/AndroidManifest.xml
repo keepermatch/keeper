@@ -53,7 +53,7 @@
         <activity android:name=".activities.MatchmakingMenuActivity" />
         <activity android:name=".activities.VouchListActivity" />
         <activity android:name=".activities.SwipeActivity" />
-        <activity android:name=".activities.MatchmakerActivity"></activity>
+        <activity android:name=".activities.MatchmakerActivity" />
     </application>
 
 </manifest>

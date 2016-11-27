@@ -21,6 +21,9 @@ import javax.annotation.Generated;
 public class User implements Serializable {
 
     public static final String AGNOSTIC = "agnostic";
+    public static final String MATCHMAKER_USER_KEY = "matchmaker_user"; // key when in a bundle
+    public static final String MATCHMAKEE_USER_KEY = "matchmakee_user"; // key when in a bundle
+    public static final String CURRENT_USER = "current_user"; // key when in a bundle
 
     // instance vars
     @SerializedName("vouches_received")
