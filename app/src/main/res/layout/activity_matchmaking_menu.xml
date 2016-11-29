@@ -38,6 +38,17 @@
             android:layout_height="wrap_content"
             android:onClick="onMatchmakerClick"
             android:text="Get Matchmakers"/>
+<Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSettingsClick"
+            android:text="Settings"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSwitchToSingleModeClick"
+            android:text="Switch to Single Mode"/>
 
     </LinearLayout>
 

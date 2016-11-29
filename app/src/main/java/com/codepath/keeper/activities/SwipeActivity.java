@@ -1,6 +1,7 @@
 package com.codepath.keeper.activities;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.codepath.keeper.Adapters.SwipeDeckAdapter;
 import com.codepath.keeper.R;
+import com.codepath.keeper.fragments.FiltersFragment;
 import com.codepath.keeper.models.User;
 import com.codepath.keeper.models.UserDailyMatchesResponse;
 import com.daprlabs.aaron.swipedeck.SwipeDeck;
@@ -28,6 +30,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class SwipeActivity extends AppCompatActivity {
 
+    private FiltersFragment mFiltersFragment;
     private SwipeDeck cardStack;
     private ArrayList<User> potentialMatches;
     private SwipeDeckAdapter adapter;
@@ -125,6 +128,20 @@ public class SwipeActivity extends AppCompatActivity {
                         }
                     }}
         );
+
+    }
+
+    public void onClickLetsSwipe(View view) {
+        //TODO api call
+        Toast.makeText(this, "chagned filters", Toast.LENGTH_SHORT).show();
+
+        mFiltersFragment.dismiss();
+    }
+
+    public void onClickAdjustFilters(View view) {
+        FragmentManager fm = getSupportFragmentManager();
+        mFiltersFragment = FiltersFragment.newInstance();
+        mFiltersFragment.show(fm, "fragment_filters");
 
     }
 }

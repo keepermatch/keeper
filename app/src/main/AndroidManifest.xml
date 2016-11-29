@@ -54,6 +54,12 @@
         <activity android:name=".activities.VouchListActivity" />
         <activity android:name=".activities.SwipeActivity" />
         <activity android:name=".activities.MatchmakerActivity" />
+        <activity android:name=".activities.SettingsActivity" />
+        <activity
+            android:name=".activities.SingleMenuActivity"
+            android:label="@string/title_activity_single_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.EditProfileActivity"></activity>
     </application>
 
 </manifest>

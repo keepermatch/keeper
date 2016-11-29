@@ -15,7 +15,7 @@ public class MatchmakingMenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_matchmaking_menu);
         mUser = (User) getIntent().getSerializableExtra(User.CURRENT_USER);
     }
 
@@ -39,6 +39,18 @@ public class MatchmakingMenuActivity extends AppCompatActivity {
 
     public void onMatchmakerClick(View view) {
         Intent i = new Intent(this, MatchmakerActivity.class);
+        i.putExtra(User.CURRENT_USER, mUser);
+        startActivity(i);
+    }
+
+    public void onSettingsClick(View view) {
+        Intent i = new Intent(this, SettingsActivity.class);
+        i.putExtra(User.CURRENT_USER, mUser);
+        startActivity(i);
+    }
+
+    public void onSwitchToSingleModeClick(View view) {
+        Intent i = new Intent(this, SingleMenuActivity.class);
         i.putExtra(User.CURRENT_USER, mUser);
         startActivity(i);
     }
