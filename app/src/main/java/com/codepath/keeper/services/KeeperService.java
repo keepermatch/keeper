@@ -1,5 +1,7 @@
 package com.codepath.keeper.services;
 
+import com.codepath.keeper.models.GenerateTokenRequest;
+import com.codepath.keeper.models.GenerateTokenResponse;
 import com.codepath.keeper.models.LoginRequest;
 import com.codepath.keeper.models.MatchMakersResponse;
 import com.codepath.keeper.models.UpdateUserRequest;
@@ -49,6 +51,10 @@ public class KeeperService {
         @PUT("/facebook_login")
         Call<User> updateUser(
                 @Body UpdateUserRequest updateUserRequest);
+
+        @POST("/generateToken")
+        Call<GenerateTokenResponse> generateToken(
+                @Body GenerateTokenRequest generateTokenRequest);
 
     }
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.codepath.keeper.KeeperApplication;
 import com.codepath.keeper.R;
 import com.codepath.keeper.models.LoginRequest;
 import com.codepath.keeper.models.User;
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void updateWithToken(final AccessToken currentAccessToken) {
@@ -123,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
 
                     Intent i = new Intent(getApplicationContext(), MatchmakingMenuActivity.class);
                     i.putExtra(User.CURRENT_USER, user);
+
+                    KeeperApplication.loginToLayer();
+
                     startActivity(i);
                 }
            }

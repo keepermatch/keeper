@@ -12,11 +12,18 @@ import com.codepath.keeper.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdvancedFilters extends Fragment {
+public class AdvancedFiltersFragment extends Fragment {
 
 
-    public AdvancedFilters() {
+    public AdvancedFiltersFragment() {
         // Required empty public constructor
+    }
+
+    public static AdvancedFiltersFragment newInstance() {
+        AdvancedFiltersFragment fragment = new AdvancedFiltersFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
     }
 
 
@@ -26,5 +33,7 @@ public class AdvancedFilters extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_advanced_filters, container, false);
     }
+
+
 
 }

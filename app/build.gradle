@@ -12,6 +12,13 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    dexOptions {
+        jumboMode = true
+        incremental true
+        // here heap size give 4g i got this thing from https://groups.google.com/forum/#!topic/adt-dev/P_TLBTyFWVY
+
+        javaMaxHeapSize "4g"
+    }
 
     buildTypes {
         release {
@@ -37,6 +44,8 @@ apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://raw.githubusercontent.com/layerhq/releases-android/master/releases/" }
+    maven { url "https://raw.githubusercontent.com/layerhq/Atlas-Android/master/releases/" }
 }
 
 apply plugin: 'android-apt'
@@ -45,6 +54,7 @@ apply plugin: 'android-apt'
 
 
 dependencies {
+    compile 'com.android.support:multidex:1.0.1'
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -69,9 +79,13 @@ dependencies {
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
     compile 'com.github.chenupt.android:springindicator:1.0.2@aar'
     compile 'com.android.support:recyclerview-v7:24.2.1'
-    compile 'com.android.support:cardview-v7:25.0.1'
+    //compile 'com.android.support:cardview-v7:25.0.1'
     compile 'com.daprlabs.aaron:swipedeck:2.0.6'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     provided 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.layer.sdk:layer-sdk:0.23.5'
+    compile 'com.google.android.gms:play-services-gcm:9.6.1'
+    compile 'org.slf4j:slf4j-nop:1.5.8'
+    compile 'com.layer.atlas:layer-atlas:0.3.6'
 }

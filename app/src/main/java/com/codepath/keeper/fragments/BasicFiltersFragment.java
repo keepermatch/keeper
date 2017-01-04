@@ -46,10 +46,7 @@ public class BasicFiltersFragment extends Fragment {
        //TODO how to dismiss fragment within dialogfragment?
     }
 
-    @OnClick(R.id.btnAdvancedFilters)
-    public void onClickAdvancedFilters(Button button) {
 
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

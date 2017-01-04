@@ -53,4 +53,10 @@
         android:onClick="onSwitchToMatchmakerModeClick"
         android:id="@+id/btnSwitchToMatchmakerMode" />
 
+    <com.layer.atlas.AtlasConversationsRecyclerView
+        android:id="@+id/conversations_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 </LinearLayout>

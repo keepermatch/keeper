@@ -106,7 +106,6 @@ public class SwipeActivity extends AppCompatActivity {
 
     }
 
-    // see https://www.dropbox.com/s/jdeo6at5vlxmd8n/userDailyMatches.json?raw=1"
     private void callGetUserDailyMatches() {
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(

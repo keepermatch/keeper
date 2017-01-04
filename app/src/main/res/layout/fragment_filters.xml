@@ -5,10 +5,10 @@
     tools:context="com.codepath.keeper.fragments.FiltersFragment">
 
 
-    <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.codepath.keeper.fragments.BasicFiltersFragment"
-        android:id="@+id/frgFilters"
-        tools:layout="@layout/fragment_basic_filters" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v4.view.ViewPager>
+
 </FrameLayout>

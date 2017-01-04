@@ -3,15 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.codepath.keeper">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!-- Signature-only permissions -->
+    <permission
+        android:name="com.codepath.keeper.permission.LAYER_PUSH"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.codepath.keeper.permission.LAYER_PUSH" />
+
+    <permission
+        android:name="com.codepath.keeper.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.codepath.keeper.permission.C2D_MESSAGE" />
+
+    <!-- LayerClient.sendLogs() permissions -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
+        android:name=".KeeperApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <receiver android:name=".LayerPushReceiver">
+            <intent-filter>
+                <action android:name="com.layer.sdk.PUSH" />
+
+                <category android:name="com.codepath.keeper" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Layer's GCM Receiver and Service -->
+        <receiver
+            android:name="com.layer.sdk.services.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter android:priority="950">
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.myapp.package" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.layer.sdk.services.GcmIntentService" />
+
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +102,8 @@
             android:name=".activities.SingleMenuActivity"
             android:label="@string/title_activity_single_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.EditProfileActivity"></activity>
+        <activity android:name=".activities.EditProfileActivity" />
+        <activity android:name=".activities.ConversationActivity"></activity>
     </application>
 
 </manifest>

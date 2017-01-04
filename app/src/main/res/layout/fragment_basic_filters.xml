@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context="com.codepath.keeper.fragments.BasicFiltersFragment">
 
     <LinearLayout
@@ -12,26 +12,11 @@
         >
 
         <TextView
-            android:text="Location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvLocation"
-            />
-
-
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner" />
-
-        <TextView
             android:text="@string/interested_in"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvInterestedIn"
             />
-
-
 
         <include layout="@layout/button_group_interested_in"
             android:layout_width="wrap_content"
@@ -43,11 +28,10 @@
             android:layout_height="wrap_content"
             />
 
-        <Button
-            android:text="Advanced Filters"
+        <TextView
+            android:text="Advanced Filters >>>"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnAdvancedFilters" />
+            android:layout_height="wrap_content"/>
 
         <Button
             android:text="Let's Swipe"
@@ -57,6 +41,5 @@
             android:id="@+id/btnLetsSwipe" />
 
     </LinearLayout>
-
 
 </FrameLayout>
